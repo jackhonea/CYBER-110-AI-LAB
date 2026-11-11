@@ -1,0 +1,57 @@
+/*
+  =============================================================================
+  CSS (Cascading Style Sheets)
+  CSS controls the visual presentation of a website—including colors, fonts,
+  spacing, positioning, and special visual effects.
+  =============================================================================
+*/
+
+/* 
+  Class Selector (.font-pixel): 
+  Target any HTML element containing the class "font-pixel" and apply 
+  the retro arcade font 'Press Start 2P'. 
+  "monospace" is a fallback font style where every character takes up equal width.
+*/
+.font-pixel { 
+    font-family: 'Press Start 2P', monospace; 
+}
+
+/* 
+  Class Selector (.font-mono-retro): 
+  Applies the retro computer monitor font 'VT323' to elements with this class.
+*/
+.font-mono-retro { 
+    font-family: 'VT323', monospace; 
+}
+
+/* 
+  Pseudo-element Selector (.crt-scanline::before):
+  ::before creates a virtual extra element inside the targeted box to draw 
+  an overlay effect. This rule creates a classic CRT monitor scanline background 
+  gradient that overlays retro screen vibes onto elements.
+*/
+.crt-scanline::before {
+    /* Required property for pseudo-elements to generate layout space */
+    content: " ";
+    display: block;
+
+    /* Absolute positioning locks the element to all 4 edges of its container */
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0;
+
+    /* Linear gradient creates alternating subtle dark lines simulating retro screens */
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+    background-size: 100% 4px;
+
+    /* Z-index controls layering stack order (higher number sits on top) */
+    z-index: 50;
+
+    /* Allows mouse clicks to pass straight through the overlay to underlying buttons */
+    pointer-events: none;
+
+    /* Sets transparency strength of the scanline lines (60% visible) */
+    opacity: 0.6;
+}

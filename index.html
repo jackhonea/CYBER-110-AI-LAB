@@ -1,0 +1,114 @@
+<!-- 
+  =============================================================================
+  HTML (HyperText Markup Language)
+  HTML provides the structural skeleton of your website. It uses tags enclosed in
+  angle brackets (like <html> or <div>) to define elements such as headings,
+  buttons, paragraphs, and containers.
+  =============================================================================
+-->
+
+<!-- 
+  DOCTYPE Tell the browser that this document is written in modern HTML5 so it 
+  renders the page correctly according to standard web rules.
+-->
+<!DOCTYPE html>
+
+<!-- 
+  The <html> root tag wraps all content on the page. 
+  "lang='en'" specifies that the primary language of the document is English.
+-->
+<html lang="en">
+<head>
+    <!-- 
+      The <head> section contains metadata (behind-the-scenes instructions and resources)
+      that the browser needs before displaying the page to the user.
+    -->
+
+    <!-- Character encoding setup: UTF-8 ensures special characters and text render properly. -->
+    <meta charset="UTF-8">
+
+    <!-- 
+      Viewport tag: Makes the website responsive (scales properly on mobile phones, 
+      tablets, and desktop screens). 
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title shown on the browser tab -->
+    <title>Nostalgia Time Capsule (1980 - 2020)</title>
+
+    <!-- 
+      CDN (Content Delivery Network) link for Tailwind CSS:
+      A CDN hosts software libraries on external servers so you don't have to download 
+      or write thousands of styling utilities manually. Tailwind lets us style elements 
+      directly inside class attributes.
+    -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- External Google Fonts: Loads retro typography fonts ("Press Start 2P" and "VT323") -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Link to your local CSS stylesheet where custom styling rules live -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- 
+  The <body> element contains everything visible on the webpage.
+  The class names here apply Tailwind utilities for background color, text color, 
+  minimum height, and text highlight colors.
+-->
+<body class="bg-gray-950 text-gray-100 min-h-screen selection:bg-pink-500 selection:text-white">
+
+    <!-- 
+      Main Container Div: 
+      A <div> (short for division) is a generic box container used to group elements together. 
+      This container centers our app content and sets maximum width boundaries.
+    -->
+    <div id="app" class="p-4 md:p-8 max-w-5xl mx-auto">
+
+        <!-- Header Section: Holds the main title and subtitle of the website -->
+        <header class="text-center mb-8">
+            <!-- Main Title with pixel font styling and a colorful gradient text fill -->
+            <h1 class="font-pixel text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-400 to-cyan-400 mb-2">
+                Nostalgia Time Capsule
+            </h1>
+            <!-- Subtitle paragraph describing what the user can do -->
+            <p class="text-gray-400 font-mono-retro text-2xl">Select a year to travel through pop culture history</p>
+        </header>
+
+        <!-- 
+          Year Selector Tabs Section: 
+          Contains clickable buttons for each year tab. 
+          The 'onclick' attribute triggers our custom JavaScript function 'setYear()' 
+          with the selected year passed as a number.
+        -->
+        <div class="flex flex-wrap justify-center gap-2 mb-8">
+            <button onclick="setYear(1980)" id="btn-1980" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">1980</button>
+            <button onclick="setYear(1985)" id="btn-1985" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">1985</button>
+            <button onclick="setYear(1990)" id="btn-1990" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">1990</button>
+            <button onclick="setYear(1995)" id="btn-1995" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">1995</button>
+            <button onclick="setYear(2000)" id="btn-2000" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">2000</button>
+            <button onclick="setYear(2005)" id="btn-2005" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">2005</button>
+            <button onclick="setYear(2010)" id="btn-2010" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">2010</button>
+            <button onclick="setYear(2015)" id="btn-2015" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">2015</button>
+            <button onclick="setYear(2020)" id="btn-2020" class="px-4 py-2 font-pixel text-xs rounded border border-cyan-500 transition-all">2020</button>
+        </div>
+
+        <!-- 
+          Dynamic Content Display Container: 
+          This empty box has a unique 'id' ("content-container"). 
+          Our JavaScript code targets this specific box to insert text, colors, 
+          and flashcards dynamically when a user clicks any year button.
+        -->
+        <div id="content-container" class="bg-gray-900 border-2 border-cyan-500/50 rounded-xl p-6 shadow-2xl relative overflow-hidden">
+            <!-- Dynamic content injected via script -->
+        </div>
+    </div>
+
+    <!-- 
+      Script tag linking our JavaScript logic:
+      Placing this right before the closing </body> tag ensures the entire HTML document 
+      loads into memory before JavaScript starts manipulating page elements.
+    -->
+    <script src="script.js"></script>
+</body>
+</html>
